@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import styles from './Conversor.module.css';
+import styles from './conversor.module.css';
 
 const Conversor = () => {
   // Referencias a los elementos input y p
@@ -37,12 +37,11 @@ const Conversor = () => {
   return (
     <div className={styles['container']}>
       <h1 className={styles['title']}>Conversor Euro - Dólar</h1>
-      <label className={styles['label']}> Introduce la cantidad en €:</label>
       <input
         className={styles['input']}
         ref={inputRef}
         type="text"
-        placeholder="€"
+        placeholder="Introduce la cantidad en €"
       />
       <button className={styles['button']} onClick={handleConvert}>
         Convertir $
