@@ -1,7 +1,28 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './conversor.module.css';
 
 const Conversor = () => {
+  // Estado para guardar valores de la API:
+  const [valor, setValor] = useState();
+
+  useEffect(() => {
+    // funcion asincrona para pedir valor de cambio a la API:
+    const getChange = async () => {
+      try {
+        const resp = await fetch(
+          'https://v6.exchangerate-api.com/v6/87cbc480adc2f002888c5036/latest/EUR'
+        );
+        const data = await resp.json();
+        const tasaConvertionUSD = await data.conversion_rates.USD;
+        setValor(tasaConvertionUSD);
+      } catch (error) {
+        console.log(`Error al acceder a la API ${error}`);
+      }
+    };
+
+    getChange();
+  }, []);
+
   // Referencias a los elementos input y p
   const inputRef = useRef(null);
   const outputRef = useRef(null);
@@ -24,7 +45,7 @@ const Conversor = () => {
     }
 
     // Convertir el valor a dólares y mostrarlo en el párrafo
-    const outputValue = (inputValue * 1.08).toFixed(2);
+    const outputValue = (inputValue * valor).toFixed(2);
     outputRef.current.innerHTML = `$${outputValue}`;
   };
 
