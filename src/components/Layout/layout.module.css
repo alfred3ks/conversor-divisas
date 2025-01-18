@@ -1,0 +1,14 @@
+.layout {
+  width: 100%;
+  min-width: 300px;
+  /* Organiza los hijos en una columna */
+  display: flex;
+  flex-direction: column;
+  /* La altura mínima es igual a la altura de la ventana */
+  min-height: 100vh;
+}
+
+.content {
+  /* El contenido ocupa todo el espacio disponible */
+  flex: 1;
+}

@@ -1,7 +1,12 @@
 import Conversor from './components/Conversor';
+import Layout from './components/Layout';
 
 const App = () => {
-  return <Conversor />;
+  return (
+    <Layout>
+      <Conversor />;
+    </Layout>
+  );
 };
 
 export default App;

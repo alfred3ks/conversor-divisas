@@ -58,7 +58,7 @@ const Conversor = () => {
 
   return (
     <div className={styles['container']}>
-      <h1 className={styles['title']}>Conversor Euro - Dólar</h1>
+      <h1 className={styles['title']}>Euro - Dólar</h1>
       <input
         className={styles['input']}
         ref={inputRef}
