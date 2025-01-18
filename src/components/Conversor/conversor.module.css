@@ -21,21 +21,6 @@
   font-size: 1.6rem;
 }
 
-.button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin: 5px;
-  cursor: pointer;
-  font-size: 1.6rem;
-}
-
-.button:hover {
-  background-color: #45a049;
-}
-
 .paragraph {
   text-align: center;
   margin-top: 20px;

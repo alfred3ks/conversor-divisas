@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './conversor.module.css';
+import Button from '../Button';
 
 const Conversor = () => {
   // Estado para guardar valores de la API:
@@ -64,12 +65,8 @@ const Conversor = () => {
         type="text"
         placeholder="Introduce la cantidad en €"
       />
-      <button className={styles['button']} onClick={handleConvert}>
-        Convertir $
-      </button>
-      <button className={styles['button']} onClick={handleReset}>
-        Reset
-      </button>
+      <Button onClick={handleConvert}>Convertir $</Button>
+      <Button onClick={handleReset}>Reset</Button>
       <p className={styles['paragraph']} ref={outputRef}></p>
     </div>
   );
