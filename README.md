@@ -22,7 +22,7 @@ Before running the application, ensure you have the following:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/currency-converter-app.git
+   git clone https://github.com/alfred3ks/conversor-divisas.git
    ```
 
 2. Navigate to the project directory:
@@ -50,7 +50,7 @@ Before running the application, ensure you have the following:
    npm run dev
    ```
 
-2. Open your browser and go to the URL provided by Vite (e.g., `http://localhost:3000`).
+2. Open your browser and go to the URL provided by Vite (e.g., `http://localhost:{your-port}`).
 
 3. Enter the amount and select the currencies you want to convert.
 
