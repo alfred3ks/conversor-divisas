@@ -11,13 +11,17 @@ const Conversor = () => {
     const getChange = async () => {
       try {
         const resp = await fetch(
-          'https://v6.exchangerate-api.com/v6/87cbc480adc2f002888c5036/latest/EUR'
+          import.meta.env.VITE_API_EXCHANGE_RATE_API_KEY
         );
+        if (!resp.ok) {
+          throw new Error('Failed to fetch exchange rates');
+        }
         const data = await resp.json();
         const tasaConvertionUSD = await data.conversion_rates.USD;
         setValor(tasaConvertionUSD);
       } catch (error) {
         console.log(`Error al acceder a la API ${error}`);
+        throw error;
       }
     };
 

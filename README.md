@@ -28,7 +28,7 @@ Before running the application, ensure you have the following:
 2. Navigate to the project directory:
 
    ```bash
-   cd currency-converter-app
+   cd conversor-divisas
    ```
 
 3. Install dependencies:
@@ -128,4 +128,4 @@ For any queries or support, feel free to reach out:
 - Email: alfred3ks@proton.me
 - GitHub: [alfred3ks](https://github.com/alfred3ks)
 
-### by: @alfred3ks
+By: @alfred3ks
