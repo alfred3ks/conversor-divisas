@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './conversor.module.css';
 import Button from '../Button';
 
-const Conversor = () => {
+import fetchExchangeRate from '../../api/fetchExchangeRate';
+
+const Conversor = ({ title, baseCurrency, targetCurrency }) => {
   // Estado para guardar valores de la API:
   const [valor, setValor] = useState();
 
@@ -10,23 +12,18 @@ const Conversor = () => {
     // funcion asincrona para pedir valor de cambio a la API:
     const getChange = async () => {
       try {
-        const resp = await fetch(
-          import.meta.env.VITE_API_EXCHANGE_RATE_API_KEY
+        const tasaDeConversion = await fetchExchangeRate(
+          baseCurrency,
+          targetCurrency
         );
-        if (!resp.ok) {
-          throw new Error('Failed to fetch exchange rates');
-        }
-        const data = await resp.json();
-        const tasaConvertionUSD = await data.conversion_rates.USD;
-        setValor(tasaConvertionUSD);
+        setValor(tasaDeConversion);
       } catch (error) {
-        console.log(`Error al acceder a la API ${error}`);
+        console.log(`Error al obtener la tasa de conversion ${error}`);
         throw error;
       }
     };
-
     getChange();
-  }, []);
+  }, [baseCurrency, targetCurrency]);
 
   // Referencias a los elementos input y p
   const inputRef = useRef(null);
@@ -51,7 +48,7 @@ const Conversor = () => {
 
     // Convertir el valor a dólares y mostrarlo en el párrafo
     const outputValue = (inputValue * valor).toFixed(2);
-    outputRef.current.innerHTML = `$${outputValue}`;
+    outputRef.current.innerHTML = `${outputValue} - ${targetCurrency}`;
   };
 
   // Función para resetear los valores
@@ -60,16 +57,18 @@ const Conversor = () => {
     outputRef.current.innerHTML = ''; // Limpia el contenido del párrafo
   };
 
+  const placeHolder = `Introduce la cantidad de ${baseCurrency}`;
+
   return (
     <div className={styles['container']}>
-      <h1 className={styles['title']}>Euro - Dólar</h1>
+      <h1 className={styles['title']}>{title}</h1>
       <input
         className={styles['input']}
         ref={inputRef}
         type="text"
-        placeholder="Introduce la cantidad en €"
+        placeholder={placeHolder}
       />
-      <Button onClick={handleConvert}>Convertir $</Button>
+      <Button onClick={handleConvert}>Convertir {targetCurrency}</Button>
       <Button onClick={handleReset}>Reset</Button>
       <p className={styles['paragraph']} ref={outputRef}></p>
     </div>
