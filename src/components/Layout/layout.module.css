@@ -1,14 +1,34 @@
 .layout {
   width: 100%;
   min-width: 300px;
-  /* Organiza los hijos en una columna */
   display: flex;
   flex-direction: column;
-  /* La altura mínima es igual a la altura de la ventana */
+  align-items: center;
   min-height: 100vh;
 }
 
 .content {
-  /* El contenido ocupa todo el espacio disponible */
+  width: 100%;
   flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+}
+
+/* Responsive design */
+@media screen and (width>=768px) {
+  .content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+    align-items: start;
+    justify-items: center;
+  }
+}
+
+@media screen and (width>=1024px) {
+  .content {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 2fr));
+  }
 }

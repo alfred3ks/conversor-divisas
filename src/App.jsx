@@ -14,7 +14,24 @@ const App = () => {
         baseCurrency={'USD'}
         targetCurrency={'JPY'}
       />
-      ;
+
+      <Conversor
+        title={'Dolar - Dolar Canada'}
+        baseCurrency={'USD'}
+        targetCurrency={'CAD'}
+      />
+
+      <Conversor
+        title={'Dolar - Rupias'}
+        baseCurrency={'USD'}
+        targetCurrency={'INR'}
+      />
+
+      <Conversor
+        title={'Dolar - Peso Mexicano'}
+        baseCurrency={'USD'}
+        targetCurrency={'MXN'}
+      />
     </Layout>
   );
 };
