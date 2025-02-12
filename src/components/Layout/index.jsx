@@ -6,9 +6,9 @@ import styles from './layout.module.css';
 const Layout = ({ children }) => {
   return (
     <div className={styles['layout']}>
-      <Header>Este es el componente header</Header>
+      <Header title={'Conversor de divisas'} />
       <main className={styles['content']}>{children}</main>
-      <Footer>Este seria el componente footer</Footer>
+      <Footer />
     </div>
   );
 };

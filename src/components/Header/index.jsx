@@ -1,8 +1,9 @@
 import styles from './header.module.css';
-const Header = () => {
+
+const Header = ({ title }) => {
   return (
     <header className={styles['header']}>
-      <h1 className={styles['title']}>Conversor de Divisas</h1>
+      <h1 className={styles['title']}>{title}</h1>
     </header>
   );
 };

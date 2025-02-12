@@ -5,7 +5,8 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p className={styles['paragraph']}>
-        ©{currentYear} Conversor de Divisas. Todos los derechos reservados.
+        ©{currentYear} @alfred3ks - Conversor de Divisas. Todos los derechos
+        reservados.
       </p>
     </footer>
   );
